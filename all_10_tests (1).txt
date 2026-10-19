@@ -1,0 +1,5306 @@
+======================================================================
+ТЕСТ: t1   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+3
+Milk 50.5 1 12 2030
+Bread 30 15 6 2030
+Apple 20 1 1 2020
+--- stores.txt ---
+2
+Alpha Moscow 2 Milk 10 Bread 5
+Beta Kazan 1 Apple 4
+--- input.txt ---
+1
+2
+0
+--- expected.txt ---
+Milk 50.5 1/12/2030
+Bread 30 15/6/2030
+Apple 20 1/1/2020
+Alpha Moscow 2 Milk 10 Bread 5
+Beta Kazan 1 Apple 4
+--- actual.txt ---
+Milk 50.5 1/12/2030
+Bread 30 15/6/2030
+Apple 20 1/1/2020
+Alpha Moscow 2 Milk 10 Bread 5
+Beta Kazan 1 Apple 4
+
+======================================================================
+ТЕСТ: t2   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+3
+Milk 50.5 1 12 2030
+Bread 30 15 6 2030
+Apple 20 1 1 2020
+--- stores.txt ---
+2
+Alpha Moscow 2 Milk 10 Bread 5
+Beta Kazan 1 Apple 4
+--- input.txt ---
+3
+Alpha
+3
+Beta
+3
+Gamma
+0
+--- expected.txt ---
+655
+0
+Store not found
+--- actual.txt ---
+655
+0
+Store not found
+
+======================================================================
+ТЕСТ: t3   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+3
+Milk 50.5 1 12 2030
+Bread 30 15 6 2030
+Apple 20 1 1 2020
+--- stores.txt ---
+3
+Alpha Moscow 1 Milk 10
+Gamma Moscow 2 Milk 7 Apple 3
+Beta Kazan 1 Apple 4
+--- input.txt ---
+4 Milk Moscow
+4 Apple Moscow
+4 Milk Kazan
+0
+--- expected.txt ---
+17
+0
+0
+--- actual.txt ---
+17
+0
+0
+
+======================================================================
+ТЕСТ: t4   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+3
+Milk 50.5 1 12 2030
+Bread 30 15 6 2030
+Apple 20 1 1 2020
+--- stores.txt ---
+3
+Alpha Moscow 1 Milk 10
+Beta Kazan 2 Milk 4 Bread 1
+Gamma Tula 1 Milk 25
+--- input.txt ---
+5
+Milk
+5
+Apple
+0
+--- expected.txt ---
+Gamma Tula 1 Milk 25
+amount: 25
+no stores
+--- actual.txt ---
+Gamma Tula 1 Milk 25
+amount: 25
+no stores
+
+======================================================================
+ТЕСТ: t5   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+3
+Milk 50.5 1 12 2030
+Bread 30 15 6 2030
+Apple 20 1 1 2020
+--- stores.txt ---
+4
+Alpha Moscow 1 Milk 10
+Alpha Tula 1 Bread 3
+Delta Perm 2 Milk 1 Unicorn 2
+Omega Ufa 2 Milk 2 Milk 3
+--- input.txt ---
+2
+9
+0
+--- expected.txt ---
+Store with Alpha name already exists.
+Product Unicorn not exists.
+Store Delta not added.
+Alpha Moscow 1 Milk 10
+Omega Ufa 1 Milk 5
+This function doesn`t exist
+--- actual.txt ---
+Store with Alpha name already exists.
+Product Unicorn not exists.
+Store Delta not added.
+Alpha Moscow 1 Milk 10
+Omega Ufa 1 Milk 5
+This function doesn`t exist
+
+======================================================================
+ТЕСТ: t10_zero_stores   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+1
+Milk 50.5 1 12 2030
+--- stores.txt ---
+0
+--- input.txt ---
+1
+2
+5 Milk
+3 X
+4 Milk Moscow
+9
+0
+--- expected.txt ---
+Milk 50.5 1/12/2030
+no stores
+Store not found
+0
+This function doesn`t exist
+--- actual.txt ---
+Milk 50.5 1/12/2030
+no stores
+Store not found
+0
+This function doesn`t exist
+
+======================================================================
+ТЕСТ: t6_random_40_stores   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+25
+oil842 83.5 23 1 2027
+tea38 1.25 10 2 2026
+oil482 989.5 31 10 2027
+coffee328 789.5 6 10 2025
+tea501 822 4 4 2026
+rice933 552 20 3 2027
+bread198 577.75 3 4 2027
+tea679 823.5 31 5 2027
+bread865 435.75 23 8 2026
+bread371 820.25 7 11 2026
+tea456 717.25 19 12 2025
+cheese718 651 9 7 2026
+bread975 47.75 9 5 2027
+cheese848 672 18 9 2026
+juice956 853.5 31 3 2026
+soap590 661 29 8 2027
+soap939 30 24 6 2027
+coffee251 617 28 11 2026
+tea366 604.25 14 1 2026
+bread513 902 9 8 2027
+soap204 120.5 29 5 2027
+tea320 737.25 2 4 2026
+rice496 229 2 2 2026
+oil215 855 29 8 2027
+soap13 194.25 19 11 2027
+--- stores.txt ---
+40
+Shop0 Ufa 1 Ghost6 36
+Shop1 Vologda 4 tea501 32 Ghost7 39 bread975 7 tea679 6
+Shop2 Ufa 6 oil482 34 bread371 27 bread198 18 oil215 12 Ghost9 8 cheese718 13
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 3 soap590 10 soap590 20 juice956 21
+Shop5 Moscow 4 bread513 18 bread975 32 rice933 19 bread513 29
+Shop6 Tver 4 coffee328 24 soap590 38 Ghost4 10 bread513 1
+Shop7 Kazan 6 soap590 5 coffee328 24 tea501 16 tea501 3 coffee328 7 Ghost8 30
+Shop8 Vologda 5 bread513 6 soap204 17 soap204 29 oil842 9 bread198 29
+Shop9 Ufa 3 soap590 38 Ghost5 24 tea38 6
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop0 Vologda 0
+Shop19 Kazan 0
+Shop20 Moscow 4 Ghost9 15 tea679 37 bread371 6 oil215 37
+Shop21 Moscow 5 coffee328 12 Ghost1 28 bread371 17 bread198 35 bread198 18
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop24 Tula 3 Ghost5 6 bread513 18 tea501 27
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop26 Omsk 6 Ghost3 8 bread975 31 soap939 35 soap590 14 bread975 10 juice956 1
+Shop27 Moscow 2 cheese718 38 cheese718 15
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 6 coffee328 14 rice933 16 rice933 15 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 6 tea320 31 oil842 35 tea501 7 cheese718 1 tea501 36 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop38 Moscow 6 coffee251 17 tea38 21 Ghost4 37 tea501 18 Ghost5 24 oil215 11
+Shop39 Vologda 6 rice933 23 soap204 15 coffee251 40 soap204 6 tea38 38 bread198 39
+--- input.txt ---
+4 tea679 Moscow
+5 tea320
+5 soap939
+4 soap939 Ufa
+4 bread371 Tver
+4 coffee328 Tver
+3 Shop17
+1
+5 tea456
+5 tea38
+2
+2
+1
+5 cheese848
+5 oil482
+3 Shop16
+4 oil842 Kazan
+4 rice496 Ufa
+4 bread975 Tver
+7
+2
+2
+4 soap590 Vologda
+4 bread371 Perm
+1
+1
+5 coffee251
+5 tea501
+3 Shop19
+1
+0
+--- expected.txt ---
+Product Ghost6 not exists.
+Store Shop0 not added.
+Product Ghost7 not exists.
+Store Shop1 not added.
+Product Ghost9 not exists.
+Store Shop2 not added.
+Product Ghost4 not exists.
+Store Shop6 not added.
+Product Ghost8 not exists.
+Store Shop7 not added.
+Product Ghost5 not exists.
+Store Shop9 not added.
+Store with Shop0 name already exists.
+Product Ghost9 not exists.
+Store Shop20 not added.
+Product Ghost1 not exists.
+Store Shop21 not added.
+Product Ghost5 not exists.
+Store Shop24 not added.
+Product Ghost3 not exists.
+Store Shop26 not added.
+Product Ghost4 not exists.
+Product Ghost5 not exists.
+Store Shop38 not added.
+40
+no stores
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+amount: 36
+0
+0
+0
+4968
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+no stores
+no stores
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+no stores
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+amount: 38
+32897
+35
+0
+0
+This function doesn`t exist
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+0
+0
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+amount: 40
+no stores
+0
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+--- actual.txt ---
+Product Ghost6 not exists.
+Store Shop0 not added.
+Product Ghost7 not exists.
+Store Shop1 not added.
+Product Ghost9 not exists.
+Store Shop2 not added.
+Product Ghost4 not exists.
+Store Shop6 not added.
+Product Ghost8 not exists.
+Store Shop7 not added.
+Product Ghost5 not exists.
+Store Shop9 not added.
+Store with Shop0 name already exists.
+Product Ghost9 not exists.
+Store Shop20 not added.
+Product Ghost1 not exists.
+Store Shop21 not added.
+Product Ghost5 not exists.
+Store Shop24 not added.
+Product Ghost3 not exists.
+Store Shop26 not added.
+Product Ghost4 not exists.
+Product Ghost5 not exists.
+Store Shop38 not added.
+40
+no stores
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+amount: 36
+0
+0
+0
+4968
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+no stores
+no stores
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+no stores
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+amount: 38
+32897
+35
+0
+0
+This function doesn`t exist
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+Shop3 Vologda 2 bread865 27 cheese848 40
+Shop4 Omsk 2 soap590 30 juice956 21
+Shop5 Moscow 3 bread513 47 bread975 32 rice933 19
+Shop8 Vologda 4 bread513 6 soap204 46 oil842 9 bread198 29
+Shop10 Tula 3 cheese718 3 tea679 39 coffee251 3
+Shop11 Moscow 0
+Shop12 Omsk 5 bread198 28 oil482 11 coffee328 26 juice956 32 tea501 5
+Shop13 Tula 0
+Shop14 Tver 1 oil215 10
+Shop15 Tver 1 rice496 9
+Shop16 Omsk 6 tea679 36 tea366 25 tea456 25 oil842 26 soap939 36 tea501 15
+Shop17 Tver 1 rice933 9
+Shop19 Kazan 0
+Shop22 Moscow 6 rice496 22 oil482 38 tea38 24 coffee328 15 oil842 24 tea456 28
+Shop23 Moscow 0
+Shop25 Kazan 5 bread513 28 soap204 31 bread865 9 tea38 13 coffee328 12
+Shop27 Moscow 1 cheese718 53
+Shop28 Perm 1 bread513 40
+Shop29 Perm 0
+Shop30 Moscow 1 tea501 34
+Shop31 Kazan 6 cheese718 22 tea366 25 soap204 5 tea38 8 bread513 10 soap939 8
+Shop32 Omsk 5 coffee328 14 rice933 31 soap590 30 oil215 40 bread198 37
+Shop33 Vologda 2 oil482 18 tea38 2
+Shop34 Omsk 3 oil842 18 coffee328 25 tea456 7
+Shop35 Kazan 5 tea320 31 oil842 35 tea501 43 cheese718 1 oil482 31
+Shop36 Omsk 1 rice933 29
+Shop37 Moscow 4 bread371 35 bread865 29 rice496 3 tea679 40
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+0
+0
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+Shop39 Vologda 5 rice933 23 soap204 21 coffee251 40 tea38 38 bread198 39
+amount: 40
+no stores
+0
+oil842 83.5 23/1/2027
+tea38 1.25 10/2/2026
+oil482 989.5 31/10/2027
+coffee328 789.5 6/10/2025
+tea501 822 4/4/2026
+rice933 552 20/3/2027
+bread198 577.75 3/4/2027
+tea679 823.5 31/5/2027
+bread865 435.75 23/8/2026
+bread371 820.25 7/11/2026
+tea456 717.25 19/12/2025
+cheese718 651 9/7/2026
+bread975 47.75 9/5/2027
+cheese848 672 18/9/2026
+juice956 853.5 31/3/2026
+soap590 661 29/8/2027
+soap939 30 24/6/2027
+coffee251 617 28/11/2026
+tea366 604.25 14/1/2026
+bread513 902 9/8/2027
+soap204 120.5 29/5/2027
+tea320 737.25 2/4/2026
+rice496 229 2/2/2026
+oil215 855 29/8/2027
+soap13 194.25 19/11/2027
+
+======================================================================
+ТЕСТ: t7_random_150_stores   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+60
+coffee971 155.25 23 10 2026
+milk75 841.75 16 3 2027
+bread375 597.75 12 11 2025
+soap220 39.25 11 12 2025
+rice429 72.5 18 5 2026
+bread565 435.5 13 11 2025
+oil127 971 30 4 2026
+oil971 64.25 27 4 2027
+oil407 51.75 28 4 2026
+milk571 880 28 1 2026
+tea430 148.5 21 3 2027
+bread585 316.75 10 4 2027
+apple106 596.5 21 4 2027
+cheese382 100.75 28 3 2027
+bread578 62 9 6 2027
+cheese509 697.5 12 3 2027
+rice796 322.5 3 1 2027
+oil946 465 19 9 2026
+tea255 814.25 17 3 2026
+cheese84 589 18 7 2026
+soap507 897 31 8 2026
+juice295 624.5 27 11 2025
+bread525 429 1 3 2026
+coffee156 956.5 27 1 2027
+rice41 986 30 7 2027
+bread783 572.25 23 4 2027
+coffee349 712.75 7 9 2026
+oil509 594.75 25 12 2026
+bread861 96.75 17 6 2026
+juice714 681 19 11 2025
+milk749 719.25 28 7 2026
+oil698 842.5 14 12 2026
+tea734 396 30 7 2027
+coffee24 964 30 12 2026
+coffee173 626.5 11 1 2026
+juice61 224.25 9 11 2027
+tea133 757 25 5 2026
+rice401 939.75 4 2 2027
+bread171 460.75 30 10 2026
+soap285 905.5 1 2 2026
+rice885 564.25 26 6 2026
+rice368 700 8 10 2026
+cheese155 85.75 13 3 2026
+apple238 675.25 10 5 2026
+milk497 852 10 5 2027
+apple270 289.5 18 9 2025
+apple430 548.25 27 9 2026
+oil580 327.25 20 1 2026
+soap974 633.25 16 7 2027
+milk468 922 21 11 2027
+soap402 408.5 27 10 2026
+rice107 494 25 6 2027
+rice64 196 21 11 2025
+cheese452 167 4 1 2026
+coffee616 54.75 27 12 2025
+milk581 155.75 17 3 2027
+bread972 373.25 4 6 2027
+milk73 896.25 14 4 2026
+oil386 153 25 6 2027
+tea979 356.5 23 5 2027
+--- stores.txt ---
+150
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 6 rice885 15 soap402 13 rice64 26 bread578 13 bread525 2 soap402 18
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop8 Tula 1 Ghost2 34
+Shop9 Tver 6 milk581 14 Ghost4 19 soap974 38 coffee173 27 soap220 23 cheese155 38
+Shop10 Tula 4 milk571 34 milk581 29 bread171 1 milk571 12
+Shop11 Vologda 5 soap220 21 coffee24 36 milk468 7 soap220 16 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop3 Tula 3 cheese155 20 milk73 10 rice368 24
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop17 Omsk 4 coffee349 13 bread565 24 Ghost9 30 milk75 25
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop19 Ufa 2 Ghost3 18 rice64 28
+Shop20 Kazan 4 tea133 32 bread565 18 Ghost3 28 oil946 2
+Shop21 Perm 0
+Shop3 Kazan 3 Ghost9 27 oil946 40 coffee24 16
+Shop23 Ufa 2 Ghost4 20 coffee24 14
+Shop24 Tver 5 bread525 2 bread375 1 Ghost9 36 tea734 31 bread861 7
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop21 Vologda 5 oil509 11 Ghost7 33 tea255 39 tea255 3 tea430 18
+Shop11 Perm 2 juice61 21 bread972 20
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop9 Tver 5 rice401 34 milk571 39 soap507 32 apple430 40 bread375 33
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop33 Perm 5 rice796 1 rice429 33 bread565 34 Ghost8 17 coffee616 17
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop37 Vologda 5 tea133 9 Ghost1 32 apple238 7 apple238 32 coffee24 19
+Shop38 Ufa 6 milk73 36 bread565 31 Ghost8 5 bread861 18 oil386 14 bread565 10
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 6 tea979 13 milk73 19 rice429 26 milk581 38 tea979 28 coffee616 4
+Shop43 Perm 6 rice885 10 oil946 28 apple106 24 oil509 2 rice885 26 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 4 bread565 12 bread565 21 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop50 Tula 6 milk75 9 Ghost8 38 rice429 26 tea979 34 bread861 16 bread578 10
+Shop51 Tver 5 rice64 30 milk468 3 Ghost3 15 bread375 20 rice885 17
+Shop52 Kazan 0
+Shop38 Vologda 4 rice796 15 coffee971 1 juice714 18 rice368 16
+Shop54 Omsk 4 coffee349 20 Ghost4 32 rice368 27 bread578 28
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop59 Tula 3 cheese155 4 milk571 26 Ghost1 39
+Shop60 Tver 5 Ghost7 29 bread972 21 bread565 11 bread585 34 bread375 20
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop63 Moscow 6 rice64 28 apple270 31 coffee173 29 coffee156 31 Ghost7 16 milk468 26
+Shop64 Moscow 3 Ghost1 17 rice429 39 oil946 22
+Shop65 Ufa 5 tea979 18 apple430 39 rice885 5 Ghost4 7 juice714 25
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop72 Ufa 6 bread861 24 Ghost5 15 apple106 39 rice401 13 coffee156 33 bread861 39
+Shop73 Moscow 5 oil127 39 bread525 14 Ghost6 10 Ghost5 3 rice368 14
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 6 rice107 24 bread783 26 coffee971 28 oil509 8 bread783 37 juice714 11
+Shop76 Kazan 1 oil386 26
+Shop78 Tula 2 tea430 10 tea430 34
+Shop79 Tver 0
+Shop80 Tver 6 rice107 13 cheese452 3 milk749 21 Ghost7 6 soap285 11 coffee616 15
+Shop81 Perm 1 bread585 37
+Shop72 Perm 1 oil971 10
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop86 Kazan 5 Ghost3 6 soap507 33 soap974 33 rice368 9 Ghost2 40
+Shop87 Ufa 3 rice107 11 apple430 15 Ghost6 40
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop93 Moscow 5 Ghost3 19 oil509 27 milk73 4 bread578 40 milk75 4
+Shop94 Tula 2 bread525 35 rice401 20
+Shop95 Tver 4 tea430 9 Ghost4 10 rice429 10 soap402 18
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop96 Kazan 5 milk497 5 rice429 38 apple106 35 rice429 25 cheese382 14
+Shop104 Ufa 5 soap974 19 oil407 7 rice368 14 juice295 28 bread525 17
+Shop105 Moscow 2 milk468 39 coffee616 19
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop114 Ufa 6 rice64 19 coffee971 34 soap974 4 Ghost8 7 soap402 12 rice401 23
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop37 Perm 4 coffee971 16 oil509 37 rice368 27 cheese155 38
+Shop126 Vologda 5 oil509 21 milk497 7 cheese509 26 rice885 11 oil509 31
+Shop120 Moscow 3 cheese155 12 soap507 1 oil698 7
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop131 Omsk 2 bread783 4 Ghost7 27
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop136 Kazan 3 Ghost5 23 cheese84 21 oil509 40
+Shop137 Omsk 2 cheese84 25 Ghost6 9
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop145 Kazan 6 tea430 21 tea133 32 cheese452 30 coffee349 5 coffee156 2 Ghost1 22
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+--- input.txt ---
+5 bread171
+1
+5 oil386
+5 soap285
+5 soap285
+3 Shop23
+3 Shop10
+5 rice885
+3 Shop29
+3 Shop9
+5 milk468
+2
+1
+4 milk581 Tula
+4 juice61 Ufa
+4 bread585 Tver
+1
+4 milk75 Tver
+7
+7
+1
+5 tea133
+5 bread375
+2
+5 tea133
+5 bread861
+2
+1
+5 bread171
+7
+3 Shop134
+5 juice61
+2
+2
+5 cheese382
+3 Shop3
+5 coffee971
+1
+2
+2
+3 Shop36
+3 Shop133
+1
+4 apple430 Perm
+5 apple430
+3 Shop12
+4 milk468 Tula
+2
+4 rice885 Vologda
+5 cheese155
+4 oil386 Moscow
+1
+1
+1
+1
+7
+2
+5 cheese84
+4 apple430 Tula
+5 bread171
+1
+4 coffee156 Vologda
+5 apple238
+3 Shop42
+2
+4 rice368 Tula
+5 milk749
+5 milk468
+5 oil946
+7
+4 tea255 Ufa
+1
+7
+7
+4 milk581 Moscow
+3 Shop87
+7
+5 bread972
+3 Shop104
+5 apple238
+0
+--- expected.txt ---
+Product Ghost2 not exists.
+Store Shop8 not added.
+Product Ghost4 not exists.
+Store Shop9 not added.
+Store with Shop3 name already exists.
+Product Ghost9 not exists.
+Store Shop17 not added.
+Product Ghost3 not exists.
+Store Shop19 not added.
+Product Ghost3 not exists.
+Store Shop20 not added.
+Store with Shop3 name already exists.
+Product Ghost4 not exists.
+Store Shop23 not added.
+Product Ghost9 not exists.
+Store Shop24 not added.
+Store with Shop21 name already exists.
+Store with Shop11 name already exists.
+Store with Shop9 name already exists.
+Product Ghost8 not exists.
+Store Shop33 not added.
+Product Ghost1 not exists.
+Store Shop37 not added.
+Product Ghost8 not exists.
+Store Shop38 not added.
+Product Ghost8 not exists.
+Store Shop50 not added.
+Product Ghost3 not exists.
+Store Shop51 not added.
+Store with Shop38 name already exists.
+Product Ghost4 not exists.
+Store Shop54 not added.
+Product Ghost1 not exists.
+Store Shop59 not added.
+Product Ghost7 not exists.
+Store Shop60 not added.
+Product Ghost7 not exists.
+Store Shop63 not added.
+Product Ghost1 not exists.
+Store Shop64 not added.
+Product Ghost4 not exists.
+Store Shop65 not added.
+Product Ghost5 not exists.
+Store Shop72 not added.
+Product Ghost6 not exists.
+Product Ghost5 not exists.
+Store Shop73 not added.
+Store with Shop76 name already exists.
+Product Ghost7 not exists.
+Store Shop80 not added.
+Store with Shop72 name already exists.
+Product Ghost3 not exists.
+Product Ghost2 not exists.
+Store Shop86 not added.
+Product Ghost6 not exists.
+Store Shop87 not added.
+Product Ghost3 not exists.
+Store Shop93 not added.
+Product Ghost4 not exists.
+Store Shop95 not added.
+Store with Shop96 name already exists.
+Store with Shop104 name already exists.
+Store with Shop105 name already exists.
+Product Ghost8 not exists.
+Store Shop114 not added.
+Store with Shop37 name already exists.
+Store with Shop120 name already exists.
+Product Ghost7 not exists.
+Store Shop131 not added.
+Product Ghost5 not exists.
+Store Shop136 not added.
+Product Ghost6 not exists.
+Store Shop137 not added.
+Product Ghost1 not exists.
+Store Shop145 not added.
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+amount: 36
+no stores
+no stores
+Store not found
+4977.5
+no stores
+922
+Store not found
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+amount: 31
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+29
+0
+28
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+27
+This function doesn`t exist
+This function doesn`t exist
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+no stores
+no stores
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+no stores
+no stores
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+This function doesn`t exist
+28582
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+amount: 36
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop2 Omsk 1 cheese382 34
+amount: 34
+35911
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+amount: 40
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+31627.5
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+0
+no stores
+60555.5
+11
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+no stores
+41
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+This function doesn`t exist
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+no stores
+0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+6
+no stores
+20535
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+no stores
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+amount: 31
+no stores
+This function doesn`t exist
+0
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+This function doesn`t exist
+This function doesn`t exist
+0
+Store not found
+This function doesn`t exist
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+amount: 26
+17437.5
+no stores
+--- actual.txt ---
+Product Ghost2 not exists.
+Store Shop8 not added.
+Product Ghost4 not exists.
+Store Shop9 not added.
+Store with Shop3 name already exists.
+Product Ghost9 not exists.
+Store Shop17 not added.
+Product Ghost3 not exists.
+Store Shop19 not added.
+Product Ghost3 not exists.
+Store Shop20 not added.
+Store with Shop3 name already exists.
+Product Ghost4 not exists.
+Store Shop23 not added.
+Product Ghost9 not exists.
+Store Shop24 not added.
+Store with Shop21 name already exists.
+Store with Shop11 name already exists.
+Store with Shop9 name already exists.
+Product Ghost8 not exists.
+Store Shop33 not added.
+Product Ghost1 not exists.
+Store Shop37 not added.
+Product Ghost8 not exists.
+Store Shop38 not added.
+Product Ghost8 not exists.
+Store Shop50 not added.
+Product Ghost3 not exists.
+Store Shop51 not added.
+Store with Shop38 name already exists.
+Product Ghost4 not exists.
+Store Shop54 not added.
+Product Ghost1 not exists.
+Store Shop59 not added.
+Product Ghost7 not exists.
+Store Shop60 not added.
+Product Ghost7 not exists.
+Store Shop63 not added.
+Product Ghost1 not exists.
+Store Shop64 not added.
+Product Ghost4 not exists.
+Store Shop65 not added.
+Product Ghost5 not exists.
+Store Shop72 not added.
+Product Ghost6 not exists.
+Product Ghost5 not exists.
+Store Shop73 not added.
+Store with Shop76 name already exists.
+Product Ghost7 not exists.
+Store Shop80 not added.
+Store with Shop72 name already exists.
+Product Ghost3 not exists.
+Product Ghost2 not exists.
+Store Shop86 not added.
+Product Ghost6 not exists.
+Store Shop87 not added.
+Product Ghost3 not exists.
+Store Shop93 not added.
+Product Ghost4 not exists.
+Store Shop95 not added.
+Store with Shop96 name already exists.
+Store with Shop104 name already exists.
+Store with Shop105 name already exists.
+Product Ghost8 not exists.
+Store Shop114 not added.
+Store with Shop37 name already exists.
+Store with Shop120 name already exists.
+Product Ghost7 not exists.
+Store Shop131 not added.
+Product Ghost5 not exists.
+Store Shop136 not added.
+Product Ghost6 not exists.
+Store Shop137 not added.
+Product Ghost1 not exists.
+Store Shop145 not added.
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+amount: 36
+no stores
+no stores
+Store not found
+4977.5
+no stores
+922
+Store not found
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+amount: 31
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+29
+0
+28
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+27
+This function doesn`t exist
+This function doesn`t exist
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+no stores
+no stores
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+no stores
+no stores
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+This function doesn`t exist
+28582
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+amount: 36
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop2 Omsk 1 cheese382 34
+amount: 34
+35911
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+amount: 40
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+31627.5
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+0
+no stores
+60555.5
+11
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+no stores
+41
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+This function doesn`t exist
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+no stores
+0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+amount: 38
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+6
+no stores
+20535
+Shop0 Vologda 2 oil971 32 juice714 31
+Shop1 Vologda 1 juice295 17
+Shop2 Omsk 1 cheese382 34
+Shop3 Perm 4 soap974 34 rice368 6 rice796 34 tea430 23
+Shop4 Vologda 5 rice885 15 soap402 31 rice64 26 bread578 13 bread525 2
+Shop5 Moscow 5 bread525 29 apple430 23 coffee156 6 bread578 31 cheese382 31
+Shop6 Tver 5 rice368 6 oil971 25 soap974 13 bread585 28 juice295 6
+Shop7 Tula 5 apple430 11 oil407 2 milk73 30 milk571 40 milk749 23
+Shop10 Tula 3 milk571 46 milk581 29 bread171 1
+Shop11 Vologda 4 soap220 37 coffee24 36 milk468 7 bread375 7
+Shop12 Perm 6 rice429 29 tea734 39 milk497 18 coffee173 31 cheese509 34 tea979 17
+Shop13 Omsk 1 bread783 29
+Shop15 Tver 1 bread578 7
+Shop16 Tula 1 cheese452 15
+Shop18 Kazan 2 rice429 8 soap402 15
+Shop21 Perm 0
+Shop25 Tula 4 bread783 33 cheese382 15 cheese452 9 bread525 4
+Shop28 Omsk 0
+Shop29 Tula 3 rice368 13 milk468 1 rice64 6
+Shop30 Tver 0
+Shop32 Moscow 6 oil386 34 tea133 2 rice401 15 bread375 9 oil127 25 juice61 4
+Shop34 Vologda 1 rice368 30
+Shop35 Vologda 0
+Shop36 Ufa 2 soap285 13 milk571 22
+Shop39 Ufa 1 rice885 33
+Shop40 Kazan 5 oil698 32 tea430 1 apple238 29 apple430 10 rice41 21
+Shop41 Omsk 0
+Shop42 Ufa 5 tea979 41 milk73 19 rice429 26 milk581 38 coffee616 4
+Shop43 Perm 5 rice885 36 oil946 28 apple106 24 oil509 2 juice61 36
+Shop44 Tver 0
+Shop45 Vologda 6 milk581 19 oil386 36 milk749 27 cheese84 17 rice368 17 cheese509 20
+Shop46 Vologda 3 rice368 11 tea734 32 bread861 22
+Shop47 Tver 3 bread565 33 rice796 37 milk75 27
+Shop48 Kazan 4 oil946 22 oil698 18 coffee156 9 coffee24 14
+Shop49 Tver 1 rice368 29
+Shop52 Kazan 0
+Shop55 Omsk 0
+Shop56 Kazan 2 apple106 1 oil580 33
+Shop57 Perm 1 rice64 13
+Shop58 Tula 2 tea255 7 oil698 40
+Shop61 Tver 2 oil127 1 bread565 23
+Shop62 Perm 0
+Shop66 Tula 6 tea979 32 rice107 20 milk468 10 soap507 21 soap402 39 apple106 26
+Shop67 Moscow 0
+Shop68 Tula 4 oil509 7 rice796 40 oil127 27 apple270 29
+Shop69 Ufa 3 milk73 16 coffee616 8 tea255 19
+Shop70 Perm 2 rice796 13 bread585 16
+Shop71 Moscow 4 rice429 26 cheese509 33 rice368 7 bread375 7
+Shop74 Kazan 3 bread585 40 cheese382 3 juice61 31
+Shop75 Tver 6 juice61 10 bread565 11 oil946 27 cheese155 20 soap220 20 bread972 23
+Shop76 Tula 5 rice107 24 bread783 63 coffee971 28 oil509 8 juice714 11
+Shop78 Tula 1 tea430 44
+Shop79 Tver 0
+Shop81 Perm 1 bread585 37
+Shop83 Perm 6 bread375 36 apple238 3 soap507 8 juice714 36 milk468 20 cheese84 38
+Shop84 Tver 5 tea734 29 coffee971 40 juice714 16 soap285 30 rice107 31
+Shop85 Vologda 1 coffee156 6
+Shop88 Moscow 4 rice64 30 tea734 31 rice796 40 soap507 24
+Shop89 Kazan 3 tea979 18 milk73 25 soap402 17
+Shop90 Omsk 0
+Shop91 Tver 3 rice401 7 coffee173 26 coffee156 17
+Shop92 Omsk 4 juice295 6 bread585 40 soap220 19 rice796 20
+Shop94 Tula 2 bread525 35 rice401 20
+Shop96 Moscow 0
+Shop97 Moscow 4 bread171 38 tea979 34 cheese509 11 bread375 4
+Shop98 Moscow 1 oil386 7
+Shop99 Moscow 5 milk571 27 bread171 33 coffee349 40 cheese84 5 soap220 31
+Shop100 Perm 3 juice714 6 bread861 12 oil127 17
+Shop101 Omsk 0
+Shop102 Tula 5 rice796 4 juice61 28 oil386 34 tea255 14 tea734 1
+Shop103 Omsk 1 apple106 11
+Shop104 Moscow 3 cheese509 25 rice885 35 cheese452 34
+Shop105 Tula 3 bread578 37 soap402 14 rice401 5
+Shop106 Kazan 0
+Shop107 Moscow 1 milk571 2
+Shop111 Tver 0
+Shop112 Omsk 0
+Shop113 Perm 0
+Shop115 Vologda 1 cheese382 15
+Shop116 Omsk 5 oil698 36 rice885 21 bread783 26 oil580 6 rice368 2
+Shop117 Vologda 2 coffee173 33 bread972 15
+Shop118 Tula 4 soap974 39 bread525 38 milk571 29 oil580 21
+Shop119 Omsk 5 rice401 15 juice714 16 oil946 20 rice64 40 milk571 16
+Shop120 Tula 2 soap507 13 apple430 7
+Shop121 Perm 0
+Shop122 Tver 1 apple430 20
+Shop123 Kazan 0
+Shop124 Vologda 3 coffee971 26 oil509 15 rice885 19
+Shop126 Vologda 4 oil509 52 milk497 7 cheese509 26 rice885 11
+Shop128 Omsk 1 soap402 13
+Shop129 Tver 4 cheese382 31 rice885 24 coffee349 30 apple238 12
+Shop130 Omsk 0
+Shop132 Perm 0
+Shop133 Perm 3 coffee24 15 bread783 30 oil407 5
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+Shop135 Tver 1 rice41 17
+Shop138 Moscow 0
+Shop139 Ufa 0
+Shop140 Tula 0
+Shop141 Perm 1 bread525 10
+Shop142 Kazan 6 soap285 39 bread565 36 cheese452 20 milk497 14 oil580 29 oil971 36
+Shop143 Moscow 1 milk749 32
+Shop144 Tula 1 cheese509 32
+Shop146 Omsk 3 milk571 3 coffee349 9 milk581 24
+Shop147 Tver 4 oil386 14 juice295 28 soap220 19 rice64 32
+Shop148 Omsk 2 bread525 14 soap402 8
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+0
+no stores
+Shop134 Omsk 4 rice64 10 rice885 27 tea255 36 milk468 31
+amount: 31
+no stores
+This function doesn`t exist
+0
+coffee971 155.25 23/10/2026
+milk75 841.75 16/3/2027
+bread375 597.75 12/11/2025
+soap220 39.25 11/12/2025
+rice429 72.5 18/5/2026
+bread565 435.5 13/11/2025
+oil127 971 30/4/2026
+oil971 64.25 27/4/2027
+oil407 51.75 28/4/2026
+milk571 880 28/1/2026
+tea430 148.5 21/3/2027
+bread585 316.75 10/4/2027
+apple106 596.5 21/4/2027
+cheese382 100.75 28/3/2027
+bread578 62 9/6/2027
+cheese509 697.5 12/3/2027
+rice796 322.5 3/1/2027
+oil946 465 19/9/2026
+tea255 814.25 17/3/2026
+cheese84 589 18/7/2026
+soap507 897 31/8/2026
+juice295 624.5 27/11/2025
+bread525 429 1/3/2026
+coffee156 956.5 27/1/2027
+rice41 986 30/7/2027
+bread783 572.25 23/4/2027
+coffee349 712.75 7/9/2026
+oil509 594.75 25/12/2026
+bread861 96.75 17/6/2026
+juice714 681 19/11/2025
+milk749 719.25 28/7/2026
+oil698 842.5 14/12/2026
+tea734 396 30/7/2027
+coffee24 964 30/12/2026
+coffee173 626.5 11/1/2026
+juice61 224.25 9/11/2027
+tea133 757 25/5/2026
+rice401 939.75 4/2/2027
+bread171 460.75 30/10/2026
+soap285 905.5 1/2/2026
+rice885 564.25 26/6/2026
+rice368 700 8/10/2026
+cheese155 85.75 13/3/2026
+apple238 675.25 10/5/2026
+milk497 852 10/5/2027
+apple270 289.5 18/9/2025
+apple430 548.25 27/9/2026
+oil580 327.25 20/1/2026
+soap974 633.25 16/7/2027
+milk468 922 21/11/2027
+soap402 408.5 27/10/2026
+rice107 494 25/6/2027
+rice64 196 21/11/2025
+cheese452 167 4/1/2026
+coffee616 54.75 27/12/2025
+milk581 155.75 17/3/2027
+bread972 373.25 4/6/2027
+milk73 896.25 14/4/2026
+oil386 153 25/6/2027
+tea979 356.5 23/5/2027
+This function doesn`t exist
+This function doesn`t exist
+0
+Store not found
+This function doesn`t exist
+Shop149 Perm 5 rice401 6 bread375 26 bread972 26 soap220 26 coffee971 3
+amount: 26
+17437.5
+no stores
+
+======================================================================
+ТЕСТ: t8_boundaries   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+7
+Chocolate 19.75 19 10 2026
+Yogurt 5.5 18 10 2026
+Cheese 40.25 20 10 2026
+Milk2 2 19 9 2026
+Kefir 3 18 11 2026
+NewYear 8 31 12 2025
+Abcdefghijklmnopqrstuvwxyz1234 1 1 1 2030
+--- stores.txt ---
+8
+Ab Moscow 3 Chocolate 3 Chocolate 4 Yogurt 10
+Abc Moscow 1 Chocolate 1
+Abcd Kazan 4 Cheese 2 Kefir 5 Milk2 9 NewYear 4
+Ab Moscow 1 Chocolate 100
+Zeta Tula 2 Chocolate 1 Nope 2
+Zeta Tula 1 Chocolate 1
+Long Kazan 1 Abcdefghijklmnopqrstuvwxyz1234 2
+Oldie Kazan 2 NewYear 7 Yogurt 1
+--- input.txt ---
+1
+2
+3 Ab
+3 Abc
+3 Abcd
+3 Zeta
+3 Long
+3 Oldie
+4 Chocolate Moscow
+4 Chocolate Kazan
+4 Kefir Kazan
+4 Yogurt Moscow
+5 Chocolate
+5 Kefir
+5 NewYear
+5 Yogurt
+5 Abcdefghijklmnopqrstuvwxyz1234
+7
+0
+--- expected.txt ---
+Store with Ab name already exists.
+Product Nope not exists.
+Store Zeta not added.
+Store with Zeta name already exists.
+Chocolate 19.75 19/10/2026
+Yogurt 5.5 18/10/2026
+Cheese 40.25 20/10/2026
+Milk2 2 19/9/2026
+Kefir 3 18/11/2026
+NewYear 8 31/12/2025
+Abcdefghijklmnopqrstuvwxyz1234 1 1/1/2030
+Ab Moscow 2 Chocolate 7 Yogurt 10
+Abc Moscow 1 Chocolate 1
+Abcd Kazan 4 Cheese 2 Kefir 5 Milk2 9 NewYear 4
+Long Kazan 1 Abcdefghijklmnopqrstuvwxyz1234 2
+Oldie Kazan 2 NewYear 7 Yogurt 1
+138.25
+19.75
+95.5
+Store not found
+2
+0
+8
+0
+5
+0
+Ab Moscow 2 Chocolate 7 Yogurt 10
+amount: 7
+Abcd Kazan 4 Cheese 2 Kefir 5 Milk2 9 NewYear 4
+amount: 5
+no stores
+no stores
+Long Kazan 1 Abcdefghijklmnopqrstuvwxyz1234 2
+amount: 2
+This function doesn`t exist
+--- actual.txt ---
+Store with Ab name already exists.
+Product Nope not exists.
+Store Zeta not added.
+Store with Zeta name already exists.
+Chocolate 19.75 19/10/2026
+Yogurt 5.5 18/10/2026
+Cheese 40.25 20/10/2026
+Milk2 2 19/9/2026
+Kefir 3 18/11/2026
+NewYear 8 31/12/2025
+Abcdefghijklmnopqrstuvwxyz1234 1 1/1/2030
+Ab Moscow 2 Chocolate 7 Yogurt 10
+Abc Moscow 1 Chocolate 1
+Abcd Kazan 4 Cheese 2 Kefir 5 Milk2 9 NewYear 4
+Long Kazan 1 Abcdefghijklmnopqrstuvwxyz1234 2
+Oldie Kazan 2 NewYear 7 Yogurt 1
+138.25
+19.75
+95.5
+Store not found
+2
+0
+8
+0
+5
+0
+Ab Moscow 2 Chocolate 7 Yogurt 10
+amount: 7
+Abcd Kazan 4 Cheese 2 Kefir 5 Milk2 9 NewYear 4
+amount: 5
+no stores
+no stores
+Long Kazan 1 Abcdefghijklmnopqrstuvwxyz1234 2
+amount: 2
+This function doesn`t exist
+
+======================================================================
+ТЕСТ: t9_ties_and_empty   РЕЗУЛЬТАТ: PASS
+======================================================================
+--- products.txt ---
+2
+Tea 10 1 1 2030
+Coffee 25.5 1 1 2030
+--- stores.txt ---
+4
+EmptyTown Samara 0
+Left Perm 3 Tea 5 Tea 5 Tea 5
+Right Ufa 1 Tea 15
+Mid Ufa 1 Coffee 2
+--- input.txt ---
+2
+3 EmptyTown
+4 Tea Samara
+4 Tea Ufa
+5 Tea
+5 Coffee
+5 Milk
+7
+0
+--- expected.txt ---
+EmptyTown Samara 0
+Left Perm 1 Tea 15
+Right Ufa 1 Tea 15
+Mid Ufa 1 Coffee 2
+0
+0
+15
+Left Perm 1 Tea 15
+amount: 15
+Mid Ufa 1 Coffee 2
+amount: 2
+no stores
+This function doesn`t exist
+--- actual.txt ---
+EmptyTown Samara 0
+Left Perm 1 Tea 15
+Right Ufa 1 Tea 15
+Mid Ufa 1 Coffee 2
+0
+0
+15
+Left Perm 1 Tea 15
+amount: 15
+Mid Ufa 1 Coffee 2
+amount: 2
+no stores
+This function doesn`t exist
+
+ИТОГ: 10 из 10
