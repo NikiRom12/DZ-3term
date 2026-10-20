@@ -88,7 +88,7 @@ class Store{
         name[0] = '\0'; 
         city[0] = '\0';} 
  
-    //Создаём магазин с заданным количеством товарных позиций
+    //Создаём магазин
     Store(int n) : count(n) { 
         products = new(nothrow) Product[count]; 
         amount = new(nothrow) unsigned int[count]; 
@@ -105,7 +105,7 @@ class Store{
             amount[i] = 0;} 
     } 
 
-    //Записываем название магазина и города в массивы char
+    //Записываем название магазина и города 
     void set_name(char n[]) { 
         int i = 0; 
         while (n[i] != '\0' && i < 30) { 
@@ -120,7 +120,7 @@ class Store{
             i++;} 
         city[i] = '\0';} 
  
-    //Записываем товар и количество его экземпляров в позицию i
+    //Записываем товар и количество его экземпляров в i
     void set_product(Product p, unsigned int a, int i) { 
         products[i] = p; 
         amount[i] = a;} 
@@ -129,7 +129,7 @@ class Store{
     void add_amount(int i, unsigned int a) {
         amount[i] += a;}
 
-//Устанавливаем число уникальных товарных позиций
+//Устанавливаем число уникальных товаров
     void set_product_count(int n) {
         count = n;}
     
@@ -229,7 +229,7 @@ int main() {
         cout<<"error"<<endl; 
         return 2;} 
      
-    // Считываем количество товаров 
+    //Считываем количество товаров 
     fprod>>n; 
     if (n < 0) {
         cout<<"Error5"<<endl;
